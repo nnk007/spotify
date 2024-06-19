@@ -85,10 +85,13 @@ const port = process.env.PORT || 3000;
 const server = http.createServer({},app);
 // const server = https.createServer(httpsOptions, app);
 server.listen(3000,"127.0.0.1",function () {
-  console.log(`Express server listening at https://127.0.0.1:${port}`);
+  console.log(`Express server listening at http://127.0.0.1:${port}`);
 
   if (process.env.NODE_ENV === "development") {
+    console.log("DEV server");
     broadcastDevReady(initialBuild);
+  } else {
+    console.log("PROD server");
   }
 });
 /* app.listen(port, async () => {
