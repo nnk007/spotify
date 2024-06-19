@@ -18,7 +18,7 @@ export function loader({ }: LoaderFunctionArgs) {
         response_type: "code",
         client_id: spotify_client_id,
         scope: scope,
-        redirect_uri: "https://win10.dog:3000/auth/callback",
+        redirect_uri: "http://localhost:3000/auth/callback", //https://developer.spotify.com/documentation/web-playback-sdk/howtos/web-app-player#request-user-authorization
         state: state
     });
     return redirectDocument('https://accounts.spotify.com/authorize/?' + auth_query_parameters.toString())

@@ -21,7 +21,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
 
     let form = new FormData();
     form.set("code", code);
-    form.set("redirect_uri", "https://win10.dog:3000/auth/callback");
+    form.set("redirect_uri", "http://localhost:3000/auth/callback");
     form.set("grant_type", "authorization_code");
     const formdata = [...form.entries()].map(v => {
         return encodeURIComponent(v[0]) + "=" + encodeURIComponent(v[1] as string);

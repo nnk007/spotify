@@ -75,15 +75,15 @@ app.use("/example/ip",
 app.all("*", remixHandler);
 
 const port = process.env.PORT || 3000;
-const key = fs.readFileSync(path.join('./', 'host.key'));
-const cert = Buffer.concat([fs.readFileSync(path.join('./', 'host.crt')), fs.readFileSync(path.join('./', 'ca.crt'))])
-const httpsOptions= {
-  key: key,
-  cert:cert
-};
+// const key = fs.readFileSync(path.join('./', 'host.key'));
+// const cert = Buffer.concat([fs.readFileSync(path.join('./', 'host.crt')), fs.readFileSync(path.join('./', 'ca.crt'))])
+// const httpsOptions= {
+//   key: key,
+//   cert:cert
+// };
 
-// const server = http.createServer({},app);
-const server = https.createServer(httpsOptions, app);
+const server = http.createServer({},app);
+// const server = https.createServer(httpsOptions, app);
 server.listen(3000,"127.0.0.1",function () {
   console.log(`Express server listening at https://127.0.0.1:${port}`);
 
